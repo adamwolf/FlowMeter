@@ -12,11 +12,10 @@ Don't. :) This is extremely early in development and is not "ready" or "stable" 
 You'll need to install CMake, and some sort of C++ toolchain. You'll need gcovr for coverage reports.
 
 ```
-mkdir -p build
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
+cmake --build build
 cd build
-cmake -DCMAKE_BUILD_TYPE=Debug ..
-cmake --build .
-ctest --progress
+ctest
 ```
 
 ### Coverage
@@ -24,10 +23,8 @@ ctest --progress
 You can also install gcovr and run:
 
 ```
-mkdir -p build
-cd build
-cmake -DCMAKE_BUILD_TYPE=Debug ..
-cmake --build coverage
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
+cmake --build build --target coverage
 ```
 
 (Coverage in CLion seems to work fine, too.)
